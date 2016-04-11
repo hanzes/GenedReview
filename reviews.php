@@ -23,7 +23,13 @@ $(document).ready(function(){
 });
 </script>    <!-- ตัวให้กดแล้วpopupเด้ง แต่พัง-->
 </head>
+<?php 
+$m = new MongoClient();
 
+$db = $m->gendb;
+
+$coll = $db->reviews;
+?>
 <body>
   <div id="main">
     <div id="header">
@@ -61,23 +67,59 @@ $(document).ready(function(){
         </div>
       </div>
         
-        <div class="login">
+<!--			  <div class="login">
     <input type="text" placeholder="username" id="username">  
   <input type="password" placeholder="password" id="password">  
   <a href="#" class="forgot">forgot password?</a>
   <input type="submit" value="Login">
-</div>
+</div> -->
 
         <!-- insert the page content here -->
         <h1>Reviews</h1>
-        <form action="action_page.php">
+      <form method="post">
   <select name="course">
     <option value="name">course name</option>
     <option value="id">course id</option>
   </select>
-    <input type="text" name="firstname">        
-    <button>search</button>
+    
+    <div class="container">
+      <div class="starter-template">
+		<div class="page-header">
+		
+		</div>
+        <form role="form" method="post">
+		  <div class="form-group">
+			<input type="text" class="form-control" id="keyword" placeholder="Enter keyword">
+		  </div>
+		</form>
+		<ul id="content"></ul>
+		
+	  </div>
+    </div><!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+	$(document).ready(function() {
+		$('#keyword').on('input', function() {
+			var searchKeyword = $(this).val();
+			if (searchKeyword.length >= 3) {
+				$.post('search.php', { keywords: searchKeyword }, function(data) {
+					$('ul#content').empty()
+					$.each(data, function() {
+						$('ul#content').append('<li><a href="example.php?id=' + this.id + '">' + this.title + '</a></li>');
+					});
+				}, "json");
+			}
+		});
+	});
+	</script>      
+	 <button name="Search">Search</button> 
 </form>  
+
 
         <br>  
         <p>ค้นหา reviews ที่ต้องการ โดยสามารถเลือก search ได้จาก name และ id </p>
@@ -155,3 +197,17 @@ $(document).ready(function(){
   </div>
 </body>
 </html>
+<?php 
+if (isset($_POST)) {
+if (isset($_POST['Search'])) {
+?>
+<table style="width:100%">
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td> 
+    <td>50</td>
+  </tr>
+<?php
+}
+}
+?>
