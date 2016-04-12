@@ -77,11 +77,8 @@ $coll = $db->reviews;
 
         <!-- insert the page content here -->
         <h1>Reviews</h1>
-      <form method="post">
-  <select name="course">
-    <option value="name">course name</option>
-    <option value="id">course id</option>
-  </select>
+ 
+ 
     
     <div class="container">
       <div class="starter-template">
@@ -104,6 +101,7 @@ $coll = $db->reviews;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+
 	$(document).ready(function() {
 		$('#keyword').on('input', function() {
 			var searchKeyword = $(this).val();
@@ -111,19 +109,18 @@ $coll = $db->reviews;
 				$.post('search.php', { keywords: searchKeyword }, function(data) {
 					$('ul#content').empty()
 					$.each(data, function() {
-						$('ul#content').append('<li><a href="example.php?id=' + this.id + '">' + this.title + '</a></li>');
+						$('ul#content').append('<li><a href="example.php?id=' + this.id + '">' +this.id +" "+ this.title + '</a></li>');
 					});
 				}, "json");
 			}
 		});
 	});
 	</script>      
-	 <button name="Search">Search</button> 
 </form>  
 
 
         <br>  
-        <p>ค้นหา reviews ที่ต้องการ โดยสามารถเลือก search ได้จาก name และ id </p>
+        <p>ค้นหา reviews ที่ต้องการ โดยสามารถ search ได้ทั้ง course name และ  course ID </p>
         <h2>Headings</h2>
           
         <p>These are the different heading formats:</p>
