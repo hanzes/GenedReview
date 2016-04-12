@@ -24,9 +24,10 @@ $(document).ready(function(){
 </script>    <!-- ตัวให้กดแล้วpopupเด้ง แต่พัง-->
 </head>
 <?php 
-$m = new MongoClient();
+$uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
+$m = new MongoClient($uri);
 
-$db = $m->gendb;
+$db = $m->distdb;
 
 $coll = $db->reviews;
 ?>
