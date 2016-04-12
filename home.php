@@ -18,9 +18,66 @@
       <div id="logo">
         <h1><a>Gened </a>Reviews</h1>
          <h2 class="slogan">&nbsp;&nbsp;&nbsp;Chulalongkorn University </h2> 
-        <button class="buttonlogin">Login</button>
+
+		 <form action= home.php method="post">
+	Username: <input type="text" name="username"><br>			
+	Password: <input type="text" name="password"><br>
+	<input type="submit" value="Submit">
+	</form>
+			 
+			
+			
+			
+			<?php
+			session_start();
+			if(empty($_SESSION['check'])){
+				$_SESSION['check']= 0;
+			}
+			
+			
+			$uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
+			$m = new MongoClient($uri);
+			$db = $m->selectDB("distdata");
+			$coll = $db->users;
+			if(isset($_POST['username']) and isset($_POST['password'])){
+					$cursor = $coll->find(array('user' => $_POST['username'],'password'=> $_POST['password']));
+					foreach($cursor as $object){
+						if(count($cursor)==1){
+							$_SESSION['check'] = 1;			
+							
+							$_SESSION['username'] = $_POST['username'];
+							$_SESSION['password'] = $_POST['password'];
+						}
+						else{
+							$_SESSION['check'] = 0;
+						}
+					
+					}
+				
+				}
+
+			if($_SESSION['check'] == 1){
+				
+				echo "login complete";
+				
+			}
+			else{
+					?>
+
+				<button class="buttonlogin">Login</button>   
+				<button class="buttonsignup">Signup</button>
+
+				<?php
+					
+			}
+			
+			
+			?>
+
+			
+
+
           
-        <button class="buttonsignup">Signup</button>  
           
       </div>
       <div id="menubar">
