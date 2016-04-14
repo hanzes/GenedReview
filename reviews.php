@@ -100,6 +100,7 @@ $coll = $db->reviews;
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 
+
 	$(document).ready(function() {
 		$('#keyword').on('input', function() {
 			var searchKeyword = $(this).val();
@@ -115,22 +116,138 @@ $coll = $db->reviews;
 	});
 
 	
-	</script>      
+	</script>  
+	<style>
+	.fancy {
+  width: 500px;
+  margin-left: 2px;
+  padding: 10px;
+  border: solid 4px;
+  border-color: #fad7fa;
+  border-left-style:ridge;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.fancy:hover {
+    background-color: #fad7fa;
+    color: black;
+}
+
+p {
+	color: black;
+}
+
+	
+	</style>
 </form>  
 
 
         <br>  
         <p>ค้นหา reviews ที่ต้องการ โดยสามารถ search ได้ทั้ง course name และ  course ID </p>
-        <h2>Headings</h2>
-          
-        <p>These are the different heading formats:</p>
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <h6>Heading 6</h6>
-        <h2>Text</h2>
+        <h1><font color="red">Recommend</font></h1>
+        <h3>Science</h3>
+		<br>
+		<?php 
+		$coll = $db->rate;
+		$cursor = $coll->find(array('category' => "Science"));
+		$maxrate = 0;
+		$maxsubj = array();
+		foreach ($cursor as $subj ){
+		if ($subj['rate'] > $maxrate) {
+			$maxrate = $subj['rate'];
+			$maxsubj = $subj;
+		}
+		}	
+		?>
+		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
+		<div class="fancy">
+		<span class="label"></span>
+		<p>
+			<?php 
+			echo $maxsubj['title'] . " " . $maxsubj['SID'];
+			?>
+			</p>
+		<span class="endlabel">      </span>
+		</div></a>
+		<br>
+		<br>
+		<h3>Human</h3>
+		<br>
+		<?php 
+		$coll = $db->rate;
+		$cursor = $coll->find(array('category' => "Human"));
+		$maxrate = 0;
+		$maxsubj = array();
+		foreach ($cursor as $subj ){
+		if ($subj['rate'] > $maxrate) {
+			$maxrate = $subj['rate'];
+			$maxsubj = $subj;
+		}
+		}	
+		?>
+		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
+		<div class="fancy">
+		<span class="label"></span>
+		<p>
+			<?php 
+			echo $maxsubj['title'] . " " . $maxsubj['SID'];
+			?>
+			</p>
+		<span class="endlabel">      </span>
+		</div></a>
+				<br>
+		<br>
+		<h3>Society</h3>
+		<br>
+		<?php 
+		$coll = $db->rate;
+		$cursor = $coll->find(array('category' => "Society"));
+		$maxrate = 0;
+		$maxsubj = array();
+		foreach ($cursor as $subj ){
+		if ($subj['rate'] > $maxrate) {
+			$maxrate = $subj['rate'];
+			$maxsubj = $subj;
+		}
+		}	
+		?>
+		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
+		<div class="fancy">
+		<span class="label"></span>
+		<p>
+			<?php 
+			echo $maxsubj['title'] . " " . $maxsubj['SID'];
+			?>
+			</p>
+		<span class="endlabel">      </span>
+		</div></a>
+		<br>
+		<br>
+		<h3>Interdisciplinary</h3>
+		<br>
+		<?php 
+		$coll = $db->rate;
+		$cursor = $coll->find(array('category' => "Interdisciplinary"));
+		$maxrate = 0;
+		$maxsubj = array();
+		foreach ($cursor as $subj ){
+		if ($subj['rate'] > $maxrate) {
+			$maxrate = $subj['rate'];
+			$maxsubj = $subj;
+		}
+		}	
+		?>
+		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
+		<div class="fancy">
+		<span class="label"></span>
+		<p>
+			<?php 
+			echo $maxsubj['title'] . " " . $maxsubj['SID'];
+			?>
+			</p>
+		<span class="endlabel">      </span>
+		</div></a>
         <p>The following examples show how the text (within '&lt;p&gt;&lt;/p&gt;' tags) will appear:</p>
         <p><strong>This is an example of bold text</strong></p>
         <p><i>This is an example of italic text</i></p>
