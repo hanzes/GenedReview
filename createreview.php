@@ -1,4 +1,19 @@
+
+<head>
 <link rel="stylesheet" type="text/css" href="style/review.css" />
+<?php 
+
+			session_start();
+			error_reporting(0);
+			$_SESSION["backurl"] =$_SERVER['HTTP_REFERER'] ;
+			$backurl = $_SESSION["backurl"];
+			if(empty($_SESSION['check'])){
+				$_SESSION['check']= 0;
+			}
+					include 'topmenu.php'; 	
+?>
+</head>   
+<body>
 <div id="comment_form">
  <form method="post">
  <div>
@@ -33,8 +48,10 @@
  </form>
   <input type="submit" name="submit" value="Add Review">
  </div>
-
+</body>
  <?php
+ 
+			
  $uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
 $m = new MongoClient($uri);
 
