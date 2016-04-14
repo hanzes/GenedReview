@@ -1,5 +1,13 @@
 <!DOCTYPE HTML>
 <html>
+<?php 
+$uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
+$m = new MongoClient($uri);
+
+$db = $m->selectDB("distdata");
+
+$coll = $db->reviews;
+?>
 
 <head>
   <title>Gened Reviews</title>
