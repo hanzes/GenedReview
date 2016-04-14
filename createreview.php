@@ -26,11 +26,14 @@
   <input type="text" name="title" required="required" placeholder="Subject Title">
  </div>
  <select name="category">
-  <option value="sci">Science</option>
-  <option value="hum">Human</option>
-  <option value="soc">Society</option>
-  <option value="int">Interdisciplinary</option>
+  <option value="Science">Science</option>
+  <option value="Human">Human</option>
+  <option value="Society">Society</option>
+  <option value="Interdisciplinary">Interdisciplinary</option>
 </select>
+ <div>
+  <input type="text" name="location" required="required" placeholder="Class Location">
+ </div>
  <div>
   <input type="text" name="credit" required="required" placeholder="Subject Credit">
  </div>
@@ -60,14 +63,30 @@ $db = $m->selectDB("distdata");
 $coll = $db->reviews;
 if ($_POST) {
 $rate = intval($_POST['rate']);
+$coll = $db->rate;
+$cursor = $coll->find(array('SID' => $_POST['SID']));
+foreach ($cursor as $doc ) {
+$up = $doc;
+}
+$newrate = $up['rate'] + $rate;
+$newcount = $up['count'] + 1;
+$newavg = (float)($newrate/$newcount);
+$coll->update($up,
+array('$set'=>array("title"=>$_POST['title'], "SID" => $_POST['SID'],"rate" => $newrate,
+    "count" => $newcount,
+    "avgrate" => $newavg)));
+$coll = $db->reviews;
 $review = array( "SID" => $_POST['SID'],
     "title" => $_POST['title'],
     "category" => $_POST['category'],
+	"location" => $_POST['location'],
     "credit" => $_POST['credit'],
     "grade" => $_POST['grade'],
     "description" => $_POST['descrip'],
     "rate" => $rate,
     "reviewer" => $_POST['name'] );
 $coll->insert($review); 
+
+
 }
  ?>

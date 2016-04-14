@@ -17,7 +17,7 @@
 $uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
 $m = new MongoClient($uri);
 
-$db = $m->distdb;
+$db = $m->selectDB("distdata");
 
 $coll = $db->reviews;
 ?>
@@ -107,12 +107,14 @@ $coll = $db->reviews;
 				$.post('search.php', { keywords: searchKeyword }, function(data) {
 					$('ul#content').empty()
 					$.each(data, function() {
-						$('ul#content').append('<li><a href="example.php?id=' + this.id + '">' +this.id +" "+ this.title + '</a></li>');
+						$('ul#content').append('<li><a href="showreview.php?SID=' + this.id + '">' +this.id +" "+ this.title + '</a></li>');
 					});
 				}, "json");
 			}
 		});
 	});
+
+	
 	</script>      
 </form>  
 
@@ -193,17 +195,3 @@ $coll = $db->reviews;
   </div>
 </body>
 </html>
-<?php 
-if (isset($_POST)) {
-if (isset($_POST['Search'])) {
-?>
-<table style="width:100%">
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td> 
-    <td>50</td>
-  </tr>
-<?php
-}
-}
-?>
