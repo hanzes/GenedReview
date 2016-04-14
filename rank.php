@@ -18,51 +18,16 @@
       <div id="logo">
         <h1><a href="#">Gened </a>Reviews</h1>
           <h2 class="slogan">&nbsp;&nbsp;&nbsp;Chulalongkorn University </h2>
-   <?php
+			<?php
 			session_start();
+			error_reporting(0);
+			$_SESSION["backurl"] =$_SERVER['HTTP_REFERER'] ;
+			$backurl = $_SESSION["backurl"];
 			if(empty($_SESSION['check'])){
 				$_SESSION['check']= 0;
 			}
-			
-			
-			$uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
-			$m = new MongoClient($uri);
-			$db = $m->selectDB("distdata");
-			$coll = $db->users;
-			if(isset($_POST['username']) and isset($_POST['password'])){
-					$cursor = $coll->find(array('user' => $_POST['username'],'password'=> $_POST['password']));
-					foreach($cursor as $object){
-						if(count($cursor)==1){
-							$_SESSION['check'] = 1;			
-							
-							$_SESSION['username'] = $_POST['username'];
-							$_SESSION['password'] = $_POST['password'];
-						}
-						else{
-							$_SESSION['check'] = 0;
-						}
-					
-					}
-				
-				}
-
-			if($_SESSION['check'] == 1){
-				
-				echo "login complete";
-				
-			}
-			else{
-					?>
-
-				<button class="buttonlogin">Login</button>   
-				<button class="buttonsignup">Signup</button>
-
-				<?php
-					
-			}
-			
-			
-			?> 
+					include 'topmenu.php'; 	
+			?>       
       </div>
       <div id="menubar">
         <ul id="menu">

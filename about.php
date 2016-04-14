@@ -36,10 +36,6 @@
         <ul id="menu">
           <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
           <li class="current"><a href="home.php"><i class="material-icons w3" style="font-size:24px;">home</i>Home</a></li>
-          <li><a href="reviews.php"><i class="material-icons w3" style="font-size:24px; ">description</i>Reviews</a></li>
-          <li><a href="rank.php"><i class="material-icons w3" style="font-size:24px; "> assessment</i>Rank</a></li>
-          <li><a href="map.php"><i class="material-icons w3" style="font-size:24px; "> map</i>Map</a></li>
-          <li><a href="contact.php"><i class="material-icons w3" style="font-size:24px; ">announcement</i>Contact Us</a></li>
         </ul>
       </div>
     </div>
@@ -47,31 +43,16 @@
     <!--insert your sidebar items here-->      
       <div id="sidebar_container">
         <br><br><br><br>  
-        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
-        <div class="sidebar"> 
-        <h3>About Gened Reviews</h3>
-        <h4 style="font-size:120%;">How to use</h4>
-        <p>แถถถถถถถ<br /></p>
-        </div>
+
         
       </div>
       <div id="content">
         <!-- insert the page content here -->
-        <h1>เว็บแนะนำรายวิชาศึกษาทั่วไป</h1>
+        <h1>สวัสดี <?php echo $_SESSION['username'];?></h1>
         			
             
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>  
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>  
+        <p> รายละเอียด เราอยากได้วิชาที่เคยรีวิว</p>
+  
       </div>
     </div>
     <div id="footer">
