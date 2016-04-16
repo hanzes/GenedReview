@@ -11,7 +11,9 @@
   <link rel="stylesheet" type="text/css" href="style/style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
   <link rel="stylesheet" type="text/css" href="style/login.css" />   
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300,300italic,600italic,600&subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style/style2.css">
 </head>
 <?php 
 $uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
@@ -59,10 +61,10 @@ $coll = $db->reviews;
         <!-- insert your sidebar items here -->
         <h3>See Your Gened</h3>
         <h4 style="font-size:120%;">How to use</h4>
-        <p>1.<br />
+        <div >1.<br />
             2.<br>
             3.
-            </p>
+            </div>
         </div>
       </div>
         
@@ -72,30 +74,81 @@ $coll = $db->reviews;
   <a href="#" class="forgot">forgot password?</a>
   <input type="submit" value="Login">
 </div> -->
-
+		<div id="content">
         <!-- insert the page content here -->
         <h1>Reviews</h1>
- 
- 
-    
+     
     <div class="container">
       <div class="starter-template">
 		<div class="page-header">
 		
 		</div>
-        <form role="form" method="post">
-		  <div class="form-group">
-			<input type="text" class="form-control" id="keyword" placeholder="Enter keyword">
+			<p>ค้นหา reviews ที่ต้องการ โดยสามารถ search ได้ทั้ง course name และ  course ID </p>
+		<form method="post"> <!--เริ่มกล่อง-->
+    <fieldset class="contact-inner">
+      <p class="contact-input">
+         <input type="text" name="name" required="required" placeholder="Reviewer Name">
+      </p>
+	  <p class="contact-input">
+          <input type="text" name="SID" required="required" placeholder="Subject ID">
+      </p>
+	  <p class="contact-input">
+         <input type="text" name="title" required="required" placeholder="Subject Title">
+      </p>
+
+      <p class="contact-input">
+        <label for="select" class="select">
+		 <select name="category" id="select">
+		 <option value="" selected>Choose Category...</option>
+			<option value="Science">Science</option>
+			<option value="Human">Human</option>
+			<option value="Society">Society</option>
+			<option value="Interdisciplinary">Interdisciplinary</option>
+			</select>
+        </label>
+      </p>
+		  <p class="contact-input">
+          <input type="text" name="location" required="required" placeholder="Class Location">
+      </p>
+		  <p class="contact-input">
+         <input type="text" name="credit" required="required" placeholder="Subject Credit">
+      </p>
+	  <p class="contact-input">
+         <input type="text" name="grade" required="required" placeholder="Reviewer Grade">
+      </p>
+  <p class="contact-input">
+        <input type="text" name="rate" required="required" placeholder="Rate (min at 0 max at 10)">
+      </p>
+
+
+      <p class="contact-input">
+        <textarea name="descrip" required="required" placeholder="Describe on this subject"></textarea>
+      </p>
+
+      <p class="contact-submit">
+        <input type="submit" name="submit" value="Add Review">
+      </p>
+    </fieldset>
+  </form>	       
+		<form role="form" method="post">
+		  
+		  <fieldset class="contact-inner">
+		  <p class="contact-input">
+         <input type="text"  class="form-control" id="keyword" placeholder="Enter keyword">
+			</p>
+	   </fieldset>
+			<!--<input type="text" class="form-control" id="keyword" placeholder="Enter keyword">-->
 		  </div>
 		</form>
 		<ul id="content"></ul>
 		
 	  </div>
-    </div><!-- /.container -->
+    </div>
+
+	<!-- /.container -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -118,6 +171,14 @@ $coll = $db->reviews;
 	
 	</script>  
 	<style>
+	
+
+
+
+
+
+
+
 	.fancy {
   width: 500px;
   margin-left: 2px;
@@ -130,22 +191,24 @@ $coll = $db->reviews;
           box-sizing: border-box;
 }
 .fancy:hover {
-    background-color: #fad7fa;
+    background-color: gray;
     color: black;
 }
 
-p {
-	color: black;
-}
+
+
+
 
 	
 	</style>
 </form>  
-
-
-        <br>  
-        <p>ค้นหา reviews ที่ต้องการ โดยสามารถ search ได้ทั้ง course name และ  course ID </p>
-        <h1><font color="red">Recommend</font></h1>
+		<h1><font color="red">Create some reviews</font></h1>
+	 
+      <p class="contact-submit"><a href="createreview.php">
+        <input type="submit" name="submit" value="Add Review">
+      </a></p>
+        <br><br>
+        <h1><font color="red">Recommended</font></h1>
         <h3>Science</h3>
 		<br>
 		<?php 
@@ -163,13 +226,16 @@ p {
 		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
 		<div class="fancy">
 		<span class="label"></span>
-		<p>
+		<br><p>
 			<?php 
 			echo $maxsubj['title'] . " " . $maxsubj['SID'];
 			?>
 			</p>
 		<span class="endlabel">      </span>
 		</div></a>
+		
+    
+       
 		<br>
 		<br>
 		<h3>Human</h3>
@@ -189,7 +255,7 @@ p {
 		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
 		<div class="fancy">
 		<span class="label"></span>
-		<p>
+		<br><p>
 			<?php 
 			echo $maxsubj['title'] . " " . $maxsubj['SID'];
 			?>
@@ -215,7 +281,7 @@ p {
 		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
 		<div class="fancy">
 		<span class="label"></span>
-		<p>
+		<br><p>
 			<?php 
 			echo $maxsubj['title'] . " " . $maxsubj['SID'];
 			?>
@@ -241,68 +307,17 @@ p {
 		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
 		<div class="fancy">
 		<span class="label"></span>
-		<p>
+		<br><p>
 			<?php 
 			echo $maxsubj['title'] . " " . $maxsubj['SID'];
 			?>
 			</p>
 		<span class="endlabel">      </span>
 		</div></a>
-        <p>The following examples show how the text (within '&lt;p&gt;&lt;/p&gt;' tags) will appear:</p>
-        <p><strong>This is an example of bold text</strong></p>
-        <p><i>This is an example of italic text</i></p>
-        <p><a href="#">This is a hyperlink</a></p>
-        <h2>Lists</h2>
-        <p>This is an unordered list:</p>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 4</li>
-        </ul>
-        <p>This is an ordered list:</p>
-        <ol>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 4</li>
-        </ol>
-        <h2>Images</h2>
-        <p>images can be placed on the left, in the center or on the right:</p>
-        <span class="left"><img src="style/graphic.png" alt="example graphic" /></span>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-          irure dolor in reprehenderit in voluptate velit esse cillum.
-        </p>
-        <span class="center"><img src="style/graphic.png" alt="example graphic" /></span>
-        <span class="right"><img src="style/graphic.png" alt="example graphic" /></span>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
-        <h2>Tables</h2>
-        <p>Tables should be used to display data and not used for laying out your website:</p>
-        <table style="width:100%; border-spacing:0;">
-          <tr><th>Item</th><th>Description</th></tr>
-          <tr><td>Item 1</td><td>Description of Item 1</td></tr>
-          <tr><td>Item 2</td><td>Description of Item 2</td></tr>
-          <tr><td>Item 3</td><td>Description of Item 3</td></tr>
-          <tr><td>Item 4</td><td>Description of Item 4</td></tr>
-        </table>
-        <h2>Form Elements</h2>
-        <form action="#" method="post">
-          <div class="form_settings">
-            <p><span>Form field example</span><input type="text" name="name" value="" /></p>
-            <p><span>Textarea example</span><textarea rows="8" cols="50" name="name"></textarea></p>
-            <p><span>Checkbox example</span><input class="checkbox" type="checkbox" name="name" value="" /></p>
-            <p><span>Dropdown list example</span><select id="id" name="name"><option value="1">Example 1</option><option value="2">Example 2</option></select></p>
-            <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="name" value="button" /></p>
+            
           </div>
+		   
+       
         </form>
       </div>
     </div>
