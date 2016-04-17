@@ -27,9 +27,7 @@ foreach ($cursor as $doc) {
 	array('$set'=>array("title"=>$add['title'], "SID" => $add['SID'],"rate" => $newrate,
     "count" => $newcount,
     "avgrate" => $newavg)));
-	print_r(array("title"=>$add['title'], "SID" => $add['SID'],"rate" => $newrate,
-    "count" => $newcount,
-    "avgrate" => $newavg));
+
 	}
 	else{
 	$nrate = array( "SID" => $doc['SID'],

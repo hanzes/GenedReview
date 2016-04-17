@@ -105,7 +105,6 @@ $arrsci = array_sort($arr2,'rate',SORT_ASC);
 $arrin = array_sort($arr3,'rate',SORT_ASC);
 $arrhum = array_sort($arr4,'rate',SORT_ASC);
 
-
 ?>
 <head>
   <title>Gened Reviews</title>
@@ -165,7 +164,7 @@ $arrhum = array_sort($arr4,'rate',SORT_ASC);
     </ul>
     
     <ul class="table-body"> 
-      <li class="tr"> 
+           <li class="tr"> 
         <span class="metric td">1ST <label>THE BEST</label></span>
         <span class="td percentile-76"><span class="number"><?php  echo $arrsci[0][0] ?></span></span>
         <span class="td percentile-87"><span class="number"><?php  echo $arrhum[0][0] ?></span></span>
@@ -174,31 +173,24 @@ $arrhum = array_sort($arr4,'rate',SORT_ASC);
       </li>
       <li class="tr">
         <span class="metric td">2ND <label>SUPERIOR</label></span>
-        <span class="td percentile-67"><span class="number">40</span></span>
-        <span class="td percentile-98"><span class="number">98</span></span>
+        <span class="td percentile-67"><span class="number"><?php  echo $arrsci[1][0] ?></span></span>
+        <span class="td percentile-98"><span class="number"><?php  echo $arrhum[1][0] ?></span></span>
         <span class="td percentile-42"><span class="number"><?php  echo $arrsoc[1][0] ?></span></span>
-		<span class="td percentile-76"><span class="number">76</span></span>
+		<span class="td percentile-19"><span class="number"><?php  echo $arrin[1][0] ?></span></span>
       </li>
       <li class="tr">
         <span class="metric td">3RD <label>BEHALF</label></span>
-        <span class="td percentile-60"><span class="number">60</span></span>
-        <span class="td percentile-91"><span class="number">91</span></span>
+        <span class="td percentile-60"><span class="number"><?php  echo $arrsci[2][0] ?></span></span>
+        <span class="td percentile-91"><span class="number"><?php  echo $arrhum[2][0] ?></span></span>
         <span class="td percentile-38"><span class="number"><?php  echo $arrsoc[2][0] ?></span></span>
-		<span class="td percentile-76"><span class="number">76</span></span>
+		<span class="td percentile-26"><span class="number"><?php  echo $arrin[2][0] ?></span></span>
       </li>
       <li class="tr">
         <span class="metric td">4TH <label>WORTHY</label></span>
-        <span class="td percentile-72"><span class="number">72</span></span>
-        <span class="td percentile-82"><span class="number">82</span></span>
-        <span class="td percentile-40"><span class="number">40</span></span>
-		<span class="td percentile-76"><span class="number">76</span></span>
-      </li>
-      <li class="tr">
-        <span class="metric td">5TH <label>FAVORABLE</label></span>
-        <span class="td percentile-70"><span class="number">70</span></span>
-        <span class="td percentile-80"><span class="number">80</span></span>
-        <span class="td percentile-25"><span class="number">25</span></span>
-		<span class="td percentile-76"><span class="number">76</span></span>
+        <span class="td percentile-72"><span class="number"><?php  echo $arrsci[3][0] ?></span></span>
+        <span class="td percentile-82"><span class="number"><?php  echo $arrhum[3][0] ?></span></span>
+        <span class="td percentile-40"><span class="number"><?php  echo $arrsoc[3][0] ?></span></span>
+		<span class="td percentile-23"><span class="number"><?php  echo $arrin[3][0] ?></span></span>
       </li>
 	  
     </ul>
