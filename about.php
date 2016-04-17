@@ -29,12 +29,33 @@
 			}
 					include 'topmenu.php'; 	
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+$uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
+$m = new MongoClient($uri);
 
+$db = $m->selectDB("distdata");
+
+$coll = $db->reviews;
+$cursor = $coll->find(array('reviewer' => $_SESSION['username']));
+=======
+
+>>>>>>> origin/master
+=======
+
+>>>>>>> origin/master
 			?>         
       </div>
       <div id="menubar">
         <ul id="menu">
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
           <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
+>>>>>>> origin/master
+=======
+          <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
+>>>>>>> origin/master
           <li class="current"><a href="home.php"><i class="material-icons w3" style="font-size:24px;">home</i>Home</a></li>
         </ul>
       </div>
@@ -51,7 +72,37 @@
         <h1>สวัสดี <?php echo $_SESSION['username'];?></h1>
         			
             
+<<<<<<< HEAD
+<<<<<<< HEAD
+         <table class="highlight">
+        <thead>
+          <tr>
+              <th data-field="id">รหัสวิชา</th>
+              <th data-field="name">ชื่อวิชา</th>
+              <th data-field="price">หมวด</th>
+          </tr>
+        </thead>
+<?php 
+foreach ($cursor as $doc) {
+$rname = array('SID'=> $doc['SID'],'title' => $doc['title'],'category' => $doc['category']) ;
+?>
+        <tbody>
+         <tr>
+            <td> <a href="showreview.php?SID=<?php echo $rname['SID']; ?>"><?php echo $rname['SID']; ?></a></td>
+            <td><?php echo $rname['title']; ?></td>
+            <td><?php echo $rname['category']; ?></td>
+          </tr>
+<?php }
+?>
+       
+        </tbody>
+      </table>
+=======
         <p> รายละเอียด เราอยากได้วิชาที่เคยรีวิว</p>
+>>>>>>> origin/master
+=======
+        <p> รายละเอียด เราอยากได้วิชาที่เคยรีวิว</p>
+>>>>>>> origin/master
   
       </div>
     </div>
