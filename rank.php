@@ -146,9 +146,7 @@ $arrhum = array_sort($arr4,'rate',SORT_ASC);
         </ul>
       </div>
     </div>
-
-      
-
+	    <div id="site_content">
         <!-- insert the page content here -->
         <h1>Rank</h1>
      
@@ -198,8 +196,7 @@ $arrhum = array_sort($arr4,'rate',SORT_ASC);
     <legend></legend>
 </div>
 </div>
-      </div>
-    </div>
+</div>
     <div id="footer">
       <p> by ICE JOY SAII BOSS P &nbsp;&nbsp; #cscu21</p>
     </div>
@@ -924,8 +921,7 @@ Style all the things
 
 body {
   background-size: cover;
-  font-family: 'junction-light';
-  font-size: 1.16667em;
+  
   color: #333;
   line-height: 1rem;
 }
@@ -933,6 +929,7 @@ body {
 
 
 .search-result {
+
   color: #333;
   margin: 1em 0 1em 0;
   padding: 0 1em;

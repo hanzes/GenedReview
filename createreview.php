@@ -1,7 +1,7 @@
 
 <html>
 <head>
-
+<link rel="stylesheet" type="text/css" href="style/review.css" />
 <title>Gened Reviews</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
@@ -10,7 +10,6 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
   <link rel="stylesheet" type="text/css" href="style/style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
-  <link rel="stylesheet" type="text/css" href="style/style2.css">
 
 
 </head>   
@@ -30,7 +29,12 @@
 			if(empty($_SESSION['check'])){
 				$_SESSION['check']= 0;
 			}
+			if($_SESSION['check'] == 0){
+					header("location:reviews.php");
+					}
+
 					include 'topmenu.php'; 	
+		
 ?>
 
           
@@ -66,46 +70,83 @@
         <h1>Create Reviews</h1>
         <form method="post"> <!--เริ่มกล่อง-->
     <fieldset class="contact-inner">
-      <p class="contact-input">
-         <input type="text" name="name" required="required" placeholder="Reviewer Name">
-      </p>
-	  <p class="contact-input">
-          <input type="text" name="SID" required="required" placeholder="Subject ID">
-      </p>
-	  <p class="contact-input">
-         <input type="text" name="title" required="required" placeholder="Subject Title">
-      </p>
-
-      <p class="contact-input">
-        <label for="select" class="select">
+	<div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="name"  name="name" type="text" class="validate" required="required">
+          <label for="name">Reviewer Name</label>
+        </div>
+		 </div>
+		<div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">description</i>
+          <input id="SID" name="SID" type="text" class="validate" required="required">
+          <label for="SID">Subject ID</label>
+        </div>
+      </div>
+	  		<div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">language</i>
+          <input id="title"  name="title" type="text" class="validate" required="required">
+          <label for="title">Subject Title</label>
+        </div>
+      </div>
+    <div class="input-field col s12">
 		 <select name="category" id="select">
 		 <option value="" selected>Choose Category...</option>
 			<option value="Science">Science</option>
 			<option value="Human">Human</option>
 			<option value="Society">Society</option>
 			<option value="Interdisciplinary">Interdisciplinary</option>
-			</select>
-        </label>
-      </p>
-		  <p class="contact-input">
-          <input type="text" name="location" required="required" placeholder="Class Location">
-      </p>
-		  <p class="contact-input">
-         <input type="text" name="credit" required="required" placeholder="Subject Credit">
-      </p>
-	  <p class="contact-input">
-         <input type="text" name="grade" required="required" placeholder="Reviewer Grade">
-      </p>
-  <p class="contact-input">
-        <input type="text" name="rate" required="required" placeholder="Rate (min at 0 max at 10)">
-      </p>
-	  <p class="contact-input">
-        <textarea name="check" required="required" placeholder="Describe on this subject"></textarea>
-      </p>
+			</select>    
+			<label>Category</label>
+      </div>
+	  <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">my_location</i>
+          <input id="location"  name="location" type="text" class="validate" required="required">
+          <label for="location">Class Location</label>
+        </div>
+      </div>
+	  <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">receipt</i>
+          <input id="credit"  name="credit" type="text" class="validate" required="required">
+          <label for="credit">Subject Credit</label>
+        </div>
+      </div>
+<div class="input-field col s12">
+    <select name="grade">
+      <option value="" disabled selected>Choose your grade</option>
+      <option value="A">A</option>
+<option value="B+">B+</option>
+<option value="B">B</option>
+<option value="C+">C+</option>
+<option value="C">C</option>
+<option value="D+">D+</option>
+<option value="D">D</option>
+<option value="W">W</option>
+<option value="F">F</option>
+<option value="I">I</option>
+    </select>
+    <label>Reviewer Grade</label>
+  </div>
+<p class="range-field">
+<label for="rate">Rate (min at 0 max at 10)</label>
+      <input type="range" id="rate" name="rate" required="required" min="0" max="10" />
+    </p>
 
-      <p class="contact-submit">
-        <input type="submit" name="submit" value="Add Review">
-      </p>
+	        <div class="row">
+			<i class="material-icons prefix">chat_bubble_outline</i>
+          <div class="input-field col s12">
+            <textarea id="descrip" name="descrip" required="required" class="materialize-textarea" length="500"></textarea>
+            <label for="descrip">Describe on this subject</label>
+          </div>
+        </div>
+<button class="btn waves-effect waves-light" type="submit"name="submit" value="Add Review">Submit
+    <i class="material-icons right">send</i>
+  </button>
+
     </fieldset>
   </form>
 
@@ -150,6 +191,8 @@ $review = array( "SID" => $_POST['SID'],
     "rate" => $rate,
     "reviewer" => $_POST['name'] );
 $coll->insert($review); 
+
+
 }
  ?>
 

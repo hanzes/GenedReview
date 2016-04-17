@@ -54,7 +54,7 @@ $coll = $db->reviews;
         </ul>
       </div>
     </div>
-    <div id="site_content">
+
       <div id="sidebar_container">
         <br><br><br><br>
         <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
@@ -105,8 +105,6 @@ $coll = $db->reviews;
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 
 	
@@ -167,13 +165,36 @@ $coll = $db->reviews;
 </form>  
 		<h1><font color="red">Create some reviews</font></h1>
 		<br>
-
-		  <a href="createreview.php">
+			<?php
+			if($_SESSION['check'] == 1){
+				?>
+ <a href="createreview.php">
 		  
 		 <p class="contact-submit1">
         <input type="submit" name="submit" value="Add Review">
       </p></a>
-	  
+				
+				<?php
+			}
+			else{
+					?>
+
+  <a href="reviews.php" onclick="myFunction()">
+		  
+		 <p class="contact-submit1">
+        <input type="submit" name="submit" value="Add Review">
+      </p></a>
+	  <script>
+function myFunction() {
+    alert("Please login!");
+}
+</script>
+
+				<?php
+					
+			}			
+			?>
+		
         <br><br>
         <h1><font color="red">Recommended</font></h1>
         <h3>Science</h3>
@@ -1025,8 +1046,6 @@ Style all the things
 
 body {
   background-size: cover;
-  font-family: 'junction-light';
-  font-size: 1.16667em;
   color: #333;
   line-height: 1rem;
 }

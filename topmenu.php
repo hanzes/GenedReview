@@ -26,7 +26,7 @@
 				?>
   <a href="logout.php"><button class="buttonlogin">Logout</button></a>
    <a href="about.php"><button class="buttonlogin">Hello, <?php echo $_SESSION['username'];?></button></a>
-	<a class="modal-trigger" href="#modal3"><button class="buttonlogin">Create Reviews</button></a>
+	 <a href="createreview.php"><button class="buttonlogin">Create Reviews</button></a>
 				
 				<?php
 			}
