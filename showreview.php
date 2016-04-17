@@ -43,8 +43,10 @@ a {
 	color: #333;
 }
 p.ex2 {
-    font: bold 12px/30px Georgia, serif;
-	font-size: 16px;
+     font-family: 'Open Sans', sans-serif;
+	padding: 0 0 20px 0;
+  line-height: 1.5em;
+  font-size: 14px;
 }
 
 /* number style */
@@ -53,6 +55,10 @@ p.ex2 {
 	padding: 0;
 }
 #commentlist li {
+	font-family: 'Open Sans', sans-serif;
+	padding: 0 0 20px 0;
+  line-height: 1.5em;
+  font-size: 100%;
 	padding: 10px 0 20px;
 	list-style: none;
 	border-top: solid 1px #ccc;
@@ -144,7 +150,7 @@ $cursor = $coll->find(array('SID' => $_GET["SID"]));
 <h2><?php echo $_GET["SID"]; ?>
 </h2>
 
-		
+<p>	
 <?php
 $rate=0;
 $num=0;
@@ -170,7 +176,7 @@ echo "Location : " . $sname['location'];
 <?php 
 echo "Avg. Rate : " . (float)($rate/$num);
 ?>
-
+</p>
 <ol id="commentlist">
 <?php
 foreach ($cursor as $doc) {

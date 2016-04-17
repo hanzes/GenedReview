@@ -1,7 +1,7 @@
 
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="style/review.css" />
+
 <title>Gened Reviews</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="style/style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
   <link rel="stylesheet" type="text/css" href="style/style2.css">
+
 
 </head>   
 <body>
@@ -98,10 +99,8 @@
   <p class="contact-input">
         <input type="text" name="rate" required="required" placeholder="Rate (min at 0 max at 10)">
       </p>
-
-
-      <p class="contact-input">
-        <textarea name="descrip" required="required" placeholder="Describe on this subject"></textarea>
+	  <p class="contact-input">
+        <textarea name="check" required="required" placeholder="Describe on this subject"></textarea>
       </p>
 
       <p class="contact-submit">
@@ -151,8 +150,6 @@ $review = array( "SID" => $_POST['SID'],
     "rate" => $rate,
     "reviewer" => $_POST['name'] );
 $coll->insert($review); 
-
-
 }
  ?>
 

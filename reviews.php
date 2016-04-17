@@ -10,10 +10,11 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
   <link rel="stylesheet" type="text/css" href="style/style.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
-  <link rel="stylesheet" type="text/css" href="style/login.css" />   
+   <!--  <link rel="stylesheet" type="text/css" href="style/login.css" />-->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300,300italic,600italic,600&subset=latin,greek-ext,greek' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style/style2.css">
+
 </head>
 <?php 
 $uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
@@ -61,10 +62,10 @@ $coll = $db->reviews;
         <!-- insert your sidebar items here -->
         <h3>See Your Gened</h3>
         <h4 style="font-size:120%;">How to use</h4>
-        <div >1.<br />
+        <p >1.<br />
             2.<br>
             3.
-            </div>
+            </p>
         </div>
       </div>
         
@@ -77,59 +78,14 @@ $coll = $db->reviews;
 		<div id="content">
         <!-- insert the page content here -->
         <h1>Reviews</h1>
-     
+   <!--เริ่มกล่อง-->
     <div class="container">
       <div class="starter-template">
 		<div class="page-header">
 		
 		</div>
 			<p>ค้นหา reviews ที่ต้องการ โดยสามารถ search ได้ทั้ง course name และ  course ID </p>
-		<form method="post"> <!--เริ่มกล่อง-->
-    <fieldset class="contact-inner">
-      <p class="contact-input">
-         <input type="text" name="name" required="required" placeholder="Reviewer Name">
-      </p>
-	  <p class="contact-input">
-          <input type="text" name="SID" required="required" placeholder="Subject ID">
-      </p>
-	  <p class="contact-input">
-         <input type="text" name="title" required="required" placeholder="Subject Title">
-      </p>
-
-      <p class="contact-input">
-        <label for="select" class="select">
-		 <select name="category" id="select">
-		 <option value="" selected>Choose Category...</option>
-			<option value="Science">Science</option>
-			<option value="Human">Human</option>
-			<option value="Society">Society</option>
-			<option value="Interdisciplinary">Interdisciplinary</option>
-			</select>
-        </label>
-      </p>
-		  <p class="contact-input">
-          <input type="text" name="location" required="required" placeholder="Class Location">
-      </p>
-		  <p class="contact-input">
-         <input type="text" name="credit" required="required" placeholder="Subject Credit">
-      </p>
-	  <p class="contact-input">
-         <input type="text" name="grade" required="required" placeholder="Reviewer Grade">
-      </p>
-  <p class="contact-input">
-        <input type="text" name="rate" required="required" placeholder="Rate (min at 0 max at 10)">
-      </p>
-
-
-      <p class="contact-input">
-        <textarea name="descrip" required="required" placeholder="Describe on this subject"></textarea>
-      </p>
-
-      <p class="contact-submit">
-        <input type="submit" name="submit" value="Add Review">
-      </p>
-    </fieldset>
-  </form>	       
+   
 		<form role="form" method="post">
 		  
 		  <fieldset class="contact-inner">
@@ -143,7 +99,7 @@ $coll = $db->reviews;
 		<ul id="content"></ul>
 		
 	  </div>
-    </div>
+   
 
 	<!-- /.container -->
     <!-- Bootstrap core JavaScript
@@ -153,7 +109,7 @@ $coll = $db->reviews;
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
 
-
+	
 	$(document).ready(function() {
 		$('#keyword').on('input', function() {
 			var searchKeyword = $(this).val();
@@ -184,15 +140,22 @@ $coll = $db->reviews;
   margin-left: 2px;
   padding: 10px;
   border: solid 4px;
-  border-color: #fad7fa;
+  border-color: #e6f5fa;
   border-left-style:ridge;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+	border-bottom-color: #ccd1d6;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 .fancy:hover {
-    background-color: gray;
+    background-color: #e6f5fa;
     color: black;
+	border: solid white;
+	border-bottom-color: #ccd1d6;
+	  border-left-style:ridge;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 
 
@@ -203,10 +166,14 @@ $coll = $db->reviews;
 	</style>
 </form>  
 		<h1><font color="red">Create some reviews</font></h1>
-	 
-      <p class="contact-submit"><a href="createreview.php">
+		<br>
+
+		  <a href="createreview.php">
+		  
+		 <p class="contact-submit1">
         <input type="submit" name="submit" value="Add Review">
-      </a></p>
+      </p></a>
+	  
         <br><br>
         <h1><font color="red">Recommended</font></h1>
         <h3>Science</h3>
@@ -321,6 +288,7 @@ $coll = $db->reviews;
         </form>
       </div>
     </div>
+	 </div>
     <div id="footer">
       <p> by ICE JOY SAII BOSS P &nbsp;&nbsp; #cscu21</p>
     </div>
