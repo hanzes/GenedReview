@@ -5,7 +5,7 @@
   <title>Gened Reviews</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
-  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
   <link rel="stylesheet" type="text/css" href="style/style.css" />
@@ -29,8 +29,6 @@
 			}
 					include 'topmenu.php'; 	
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 $uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
 $m = new MongoClient($uri);
 
@@ -38,24 +36,10 @@ $db = $m->selectDB("distdata");
 
 $coll = $db->reviews;
 $cursor = $coll->find(array('reviewer' => $_SESSION['username']));
-=======
-
->>>>>>> origin/master
-=======
-
->>>>>>> origin/master
 			?>         
       </div>
       <div id="menubar">
         <ul id="menu">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-          <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
->>>>>>> origin/master
-=======
-          <!-- put class="current" in the li tag for the selected page - to highlight which page you're on -->
->>>>>>> origin/master
           <li class="current"><a href="home.php"><i class="material-icons w3" style="font-size:24px;">home</i>Home</a></li>
         </ul>
       </div>
@@ -72,8 +56,6 @@ $cursor = $coll->find(array('reviewer' => $_SESSION['username']));
         <h1>สวัสดี <?php echo $_SESSION['username'];?></h1>
         			
             
-<<<<<<< HEAD
-<<<<<<< HEAD
          <table class="highlight">
         <thead>
           <tr>
@@ -97,12 +79,6 @@ $rname = array('SID'=> $doc['SID'],'title' => $doc['title'],'category' => $doc['
        
         </tbody>
       </table>
-=======
-        <p> รายละเอียด เราอยากได้วิชาที่เคยรีวิว</p>
->>>>>>> origin/master
-=======
-        <p> รายละเอียด เราอยากได้วิชาที่เคยรีวิว</p>
->>>>>>> origin/master
   
       </div>
     </div>
