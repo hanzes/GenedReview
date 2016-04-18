@@ -54,7 +54,7 @@ $coll = $db->reviews;
         </ul>
       </div>
     </div>
-
+<div id="site_content">
       <div id="sidebar_container">
         <br><br><br><br>
         <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
@@ -75,6 +75,7 @@ $coll = $db->reviews;
   <a href="#" class="forgot">forgot password?</a>
   <input type="submit" value="Login">
 </div> -->
+
 		<div id="content">
         <!-- insert the page content here -->
         <h1>Reviews</h1>
@@ -1045,7 +1046,7 @@ Style all the things
 
 
 body {
-  background-size: cover;
+  
   color: #333;
   line-height: 1rem;
 }

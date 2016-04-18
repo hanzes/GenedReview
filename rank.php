@@ -147,50 +147,58 @@ $arrhum = array_sort($arr4,'rate',SORT_ASC);
       </div>
     </div>
 	    <div id="site_content">
+		<div id="content">
         <!-- insert the page content here -->
         <h1>Rank</h1>
-     
+     </div>
 <div class="search-boxen">
 <div class="search-result">
   <div class="benchmarks table">
     <ul class="table-header">
       <li class="th1"></li>
-      <li class="th"><label>Science</label></li>
-      <li class="th"><label>Human</label></li>
-      <li class="th"><label>Society</label></li>
-	  <li class="th"><label>Interdiscipilnary</label></li>
+      <li class="th">Science</li>
+      <li class="th">Human</li>
+      <li class="th">Society</li>
+	  <li class="th">Interdiscipilnary</li>
     </ul>
     
-    <ul class="table-body"> 
-           <li class="tr"> 
-        <span class="metric td">1ST <label>THE BEST</label></span>
-        <span class="td percentile-76"><span class="number"><?php  echo $arrsci[0][0] ?></span></span>
-        <span class="td percentile-87"><span class="number"><?php  echo $arrhum[0][0] ?></span></span>
-        <span class="td percentile-32"><span class="number"><?php  echo $arrsoc[0][0] ?></span></span>
-		<span class="td percentile-9"><span class="number"><?php  echo $arrin[0][0] ?></span></span>
+<ul class="table-body"> 
+
+	  <li class="tr"> 
+        <span class="metric td">1ST<br>THE BEST</span>
+        <a class="td percentile-76" href=" <?php  echo "showreview.php?SID=" . $arrsci[0][2];  ?>"><span class="number"><?php  echo $arrsci[0][0] ?></span></a>
+        <a class="td percentile-87" href=" <?php  echo "showreview.php?SID=" . $arrhum[0][2];  ?>"><span class="number"><?php  echo $arrhum[0][0] ?></span></a>
+		<a class="td percentile-32" href=" <?php  echo "showreview.php?SID=" . $arrsoc[0][2];  ?>"><span class="number" ><?php  echo $arrsoc[0][0] ?></span></a>
+		<a class="td percentile-9" href=" <?php  echo "showreview.php?SID=" . $arrin[0][2];  ?>"><span class="number"><?php  echo $arrin[0][0] ?></span></a>
       </li>
       <li class="tr">
-        <span class="metric td">2ND <label>SUPERIOR</label></span>
-        <span class="td percentile-67"><span class="number"><?php  echo $arrsci[1][0] ?></span></span>
-        <span class="td percentile-98"><span class="number"><?php  echo $arrhum[1][0] ?></span></span>
-        <span class="td percentile-42"><span class="number"><?php  echo $arrsoc[1][0] ?></span></span>
-		<span class="td percentile-19"><span class="number"><?php  echo $arrin[1][0] ?></span></span>
+        <span class="metric td">2ND<br>SUPERIOR</span>
+        <a class="td percentile-67" href=" <?php  echo "showreview.php?SID=" . $arrsci[1][2];  ?>"><span class="number"><?php  echo $arrsci[1][0] ?></span></a>
+        <a class="td percentile-98" href=" <?php  echo "showreview.php?SID=" . $arrhum[1][2];  ?>"><span class="number"><?php  echo $arrhum[1][0] ?></span></a>
+        <a class="td percentile-42" href=" <?php  echo "showreview.php?SID=" . $arrsoc[1][2];  ?>"><span class="number"><?php  echo $arrsoc[1][0] ?></span></a>
+		<a class="td percentile-19" href=" <?php  echo "showreview.php?SID=" . $arrin[1][2];  ?>"><span class="number"><?php  echo $arrin[1][0] ?></span></a>
       </li>
       <li class="tr">
-        <span class="metric td">3RD <label>BEHALF</label></span>
-        <span class="td percentile-60"><span class="number"><?php  echo $arrsci[2][0] ?></span></span>
-        <span class="td percentile-91"><span class="number"><?php  echo $arrhum[2][0] ?></span></span>
-        <span class="td percentile-38"><span class="number"><?php  echo $arrsoc[2][0] ?></span></span>
-		<span class="td percentile-26"><span class="number"><?php  echo $arrin[2][0] ?></span></span>
+        <span class="metric td">3RD<br>BEHALF</span>
+        <a class="td percentile-60" href=" <?php  echo "showreview.php?SID=" . $arrsci[2][2];  ?>"><span class="number"><?php  echo $arrsci[2][0] ?></span></a>
+        <a class="td percentile-91" href=" <?php  echo "showreview.php?SID=" . $arrhum[2][2];  ?>"><span class="number"><?php  echo $arrhum[2][0] ?></span></a>
+        <a class="td percentile-38" href=" <?php  echo "showreview.php?SID=" . $arrsoc[2][2];  ?>"><span class="number"><?php  echo $arrsoc[2][0] ?></span></a>
+		<a class="td percentile-26" href=" <?php  echo "showreview.php?SID=" . $arrin[2][2];  ?>"><span class="number"><?php  echo $arrin[2][0] ?></span></a>
       </li>
       <li class="tr">
-        <span class="metric td">4TH <label>WORTHY</label></span>
-        <span class="td percentile-72"><span class="number"><?php  echo $arrsci[3][0] ?></span></span>
-        <span class="td percentile-82"><span class="number"><?php  echo $arrhum[3][0] ?></span></span>
-        <span class="td percentile-40"><span class="number"><?php  echo $arrsoc[3][0] ?></span></span>
-		<span class="td percentile-23"><span class="number"><?php  echo $arrin[3][0] ?></span></span>
+        <span class="metric td">4TH<br>WORTHY</span>
+        <a class="td percentile-72" href=" <?php  echo "showreview.php?SID=" . $arrsci[3][2];  ?>"><span class="number"><?php  echo $arrsci[3][0] ?></span></a>
+        <a class="td percentile-82" href=" <?php  echo "showreview.php?SID=" . $arrhum[3][2];  ?>"><span class="number"><?php  echo $arrhum[3][0] ?></span></a>
+        <a class="td percentile-40" href=" <?php  echo "showreview.php?SID=" . $arrsoc[3][2];  ?>"><span class="number"><?php  echo $arrsoc[3][0] ?></span></a>
+		<a class="td percentile-23" href=" <?php  echo "showreview.php?SID=" . $arrin[3][2];  ?>"><span class="number"><?php  echo $arrin[3][0] ?></span></a>
       </li>
-	  
+      <li class="tr">
+        <span class="metric td">5TH<br>FAVORABLE</span>
+        <a class="td percentile-70" href=" <?php  echo "showreview.php?SID=" . $arrsci[4][2];  ?>"><span class="number"><?php  echo $arrsci[4][0] ?></span></a>
+        <a class="td percentile-80" href=" <?php  echo "showreview.php?SID=" . $arrhum[4][2];  ?>"><span class="number"><?php  echo $arrhum[4][0] ?></span></a>
+        <a class="td percentile-25" href=" <?php  echo "showreview.php?SID=" . $arrsoc[4][2];  ?>"><span class="number"><?php  echo $arrsoc[4][0] ?></span></a>
+		<a class="td percentile-14" href=" <?php  echo "showreview.php?SID=" . $arrin[4][2];  ?>"><span class="number"><?php  echo $arrin[4][0] ?></span></a>
+      </li>
     </ul>
   </div>
     <legend></legend>
@@ -920,7 +928,7 @@ Style all the things
 
 
 body {
-  background-size: cover;
+ 
   
   color: #333;
   line-height: 1rem;
@@ -956,6 +964,8 @@ body {
 .table-header .th1 {
   padding-bottom: .5em;
   text-align: center;
+  
+  
 }
 .table-header .th label {
   display: block;
