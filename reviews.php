@@ -328,8 +328,6 @@ function myFunction() {
     </div>
   </div>
 </body>
-<script src='//assets.codepen.io/assets/editor/live/console_runner-ba402f0a8d1d2ce5a72889b81a71a979.js'></script><script src='//assets.codepen.io/assets/editor/live/events_runner-902c66a0175801ad4cdf661b3208a97b.js'></script><script src='//assets.codepen.io/assets/editor/live/css_live_reload_init-bad5f8d322020126e7b4287d497c7efe.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="canonical" href="http://codepen.io/pnts/pen/nJvDr" />
-
 <link rel='stylesheet prefetch' href='//codepen.io/assets/reset/normalize.css'>
 <style class="cp-pen-styles">/*------------------------------------------------------------------
 

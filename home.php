@@ -44,35 +44,113 @@
       </div>
     </div>
     <div id="site_content">
-    <!--insert your sidebar items here-->      
-      <div id="sidebar_container">
-        <br><br><br><br>  
-        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
-        <div class="sidebar"> 
-        <h3>About Gened Reviews</h3>
-        <h4 style="font-size:120%;">How to use</h4>
-        <p>แถถถถถถถ<br /></p>
+    <!--insert your sidebar items here-->
+	<?php 
+$uri = "mongodb://distdbpro:distdb555@ds023570.mlab.com:23570/distdata";
+$m = new MongoClient($uri);
+
+$db = $m->selectDB("distdata");
+
+$coll = $db->reviews;
+?>
+  <div class="slider">
+    <ul class="slides">
+      <?php 
+		$coll = $db->rate;
+		$cursor = $coll->find(array('category' => "Science"));
+		$maxrate = 0;
+		$maxsubj = array();
+		foreach ($cursor as $subj ){
+		if ($subj['rate'] > $maxrate) {
+			$maxrate = $subj['rate'];
+			$maxsubj = $subj;
+		}
+		}	
+		?>
+	  
+	  <li>
+	  <a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
+        <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+		</a>
+        <div class="caption center-align">
+          <h3>Recommended For Science</h3>
+          <h5 class="light grey-text text-lighten-3"><?php  echo $maxsubj['title'] . " " . $maxsubj['SID']; ?></h5>
         </div>
-        
-      </div>
-      <div id="content">
-        <!-- insert the page content here -->
-        <h1>เว็บแนะนำรายวิชาศึกษาทั่วไป</h1>
-        			
-            
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>  
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>
-        <p> แถ</p>  
-      </div>
+      </li>
+
+	  <?php 
+		$coll = $db->rate;
+		$cursor = $coll->find(array('category' => "Society"));
+		$maxrate = 0;
+		$maxsubj = array();
+		foreach ($cursor as $subj ){
+		if ($subj['rate'] > $maxrate) {
+			$maxrate = $subj['rate'];
+			$maxsubj = $subj;
+		}
+		}	
+		?>
+      <li>
+	  <a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
+        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+		</a>
+        <div class="caption left-align">
+          <h3>Recommended For Society</h3>
+          <h5 class="light grey-text text-lighten-3"><?php  echo $maxsubj['title'] . " " . $maxsubj['SID']; ?></h5>
+        </div>
+      </li>
+
+	  <?php 
+		$coll = $db->rate;
+		$cursor = $coll->find(array('category' => "Interdisciplinary"));
+		$maxrate = 0;
+		$maxsubj = array();
+		foreach ($cursor as $subj ){
+		if ($subj['rate'] > $maxrate) {
+			$maxrate = $subj['rate'];
+			$maxsubj = $subj;
+		}
+		}	
+		?>
+      <li>
+	  <a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
+        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+		</a>
+        <div class="caption right-align">
+          <h3>Recommended For Interdisciprinary</h3>
+          <h5 class="light grey-text text-lighten-3"><?php  echo $maxsubj['title'] . " " . $maxsubj['SID']; ?></h5>
+        </div>
+      </li>
+<?php 
+		$coll = $db->rate;
+		$cursor = $coll->find(array('category' => "Human"));
+		$maxrate = 0;
+		$maxsubj = array();
+		foreach ($cursor as $subj ){
+		if ($subj['rate'] > $maxrate) {
+			$maxrate = $subj['rate'];
+			$maxsubj = $subj;
+		}
+		}	
+		?>
+	
+      <li>
+	  	<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
+        <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+		</a>
+        <div class="caption center-align">
+          <h3>Recommended For Human</h3>
+          <h5 class="light grey-text text-lighten-3"><?php  echo $maxsubj['title'] . " " . $maxsubj['SID']; ?></h5>
+        </div>
+      </li>
+	 
+    </ul>
+  </div>
+
+
+
+
+
     </div>
     <div id="footer">
       <p> by ICE JOY SAII BOSS P &nbsp;&nbsp; #cscu21</p>

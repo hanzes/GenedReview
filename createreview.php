@@ -115,16 +115,16 @@
           <label for="credit">Subject Credit</label>
         </div>
       </div>
-<div class="input-field col s12">
+	<div class="input-field col s6">
     <select name="grade">
       <option value="" disabled selected>Choose your grade</option>
       <option value="A">A</option>
-<option value="B+">B+</option>
-<option value="B">B</option>
-<option value="C+">C+</option>
-<option value="C">C</option>
-<option value="D+">D+</option>
-<option value="D">D</option>
+	  <option value="B+">B+</option>
+	  <option value="B">B</option>
+	  <option value="C+">C+</option>
+	  <option value="C">C</option>
+	  <option value="D+">D+</option>
+	  <option value="D">D</option>
 <option value="W">W</option>
 <option value="F">F</option>
 <option value="I">I</option>

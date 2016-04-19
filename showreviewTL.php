@@ -115,6 +115,8 @@ p.ex2 {
       </div>
     </div>
 	<div id="site_content">
+         
+        <!-- insert the page content here -->
         <h1>Reviews</h1>
 		<?php 
 
@@ -164,24 +166,74 @@ echo "Avg. Rate : " . (float)($rate/$num);
 ?>
 </p>
 <ol id="commentlist">
+<section id="exp" class="pfblock pfblock-gray">
+        <div class="container">
+                    <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="pfblock-header wow fadeInUp">
+                        <h2 class="pfblock-title">Comment Lists</h2>
+                        <div class="pfblock-line wow zoomIn"></div>
+                        <div class="pfblock-subtitle">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <div class="row wow zoomIn">
+        <div class="timeline-centered">
+        <article class="timeline-entry right-aligned wow zoomIn">
+        <div class="timeline-entry-inner">
+            <time class="timeline-time"><span></span> <span></span></time>
+            <div class="timeline-icon bg-success">
+                <i class="entypo-camera"></i>
+            </div>
+        </div>
+    </article>
 
 <?php
 foreach ($cursor as $doc) {
 $rname = array('reviewer'=> $doc['reviewer'],'grade' => $doc['grade'],'rate' => $doc['rate'], 'descrip' => $doc['description']) ;
 ?>
-<li>
-		<p><cite><?php echo $rname['reviewer']; ?>:</cite></p>
-		<p><small><?php echo "Got Grade : " . $rname['grade']; ?></small></p>
-		<p><small><?php echo "Rate for this subject : " . $rname['rate']; ?></small></p>
-		<p class = "ex2"><?php echo $rname['descrip']; ?> </p>
-	</li>
-<?php }
+    <article class="timeline-entry right-aligned">
+        <div class="timeline-entry-inner">
+            <time class="timeline-time"><span><?php echo $rname['reviewer']; ?></span> <span></span></time>
+            <div class="timeline-icon bg-warning">
+                <i class="entypo-camera"></i>
+            </div>
+            <div class="timeline-label">
+                <h2><a><?php echo "Got Grade : " . $rname['grade']; ?> <?php echo "Rate for this subject : " . $rname['rate']; ?></a></h2>
+                <blockquote><?php echo $rname['descrip']; ?></blockquote>
+				
+            </div>
+        </div>
+    </article>
+
+	<?php }
 ?>
+        <article class="timeline-entry begin wow zoomIn">
+
+        <div class="timeline-entry-inner">
+
+            <div class="timeline-icon bg-primary" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+                <i class="entypo-flight"></i>
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+    </div>
+</div>
+    </section>
+
+       
+      </div>
     </div>
     <div id="footer">
       <p> by ICE JOY SAII BOSS P &nbsp;&nbsp; #cscu21</p>
     </div>
- </div>
+
 
 	
 	
