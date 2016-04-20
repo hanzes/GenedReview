@@ -55,19 +55,7 @@ $coll = $db->reviews;
       </div>
     </div>
 <div id="site_content">
-      <div id="sidebar_container">
-        <br><br><br><br>
-        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
-        <div class="sidebar">
-        <!-- insert your sidebar items here -->
-        <h3>See Your Gened</h3>
-        <h4 style="font-size:120%;">How to use</h4>
-        <p >1.<br />
-            2.<br>
-            3.
-            </p>
-        </div>
-      </div>
+    
         
 <!--			  <div class="login">
     <input type="text" placeholder="username" id="username">  
@@ -164,27 +152,24 @@ $coll = $db->reviews;
 	
 	</style>
 </form>  
-		<h1><font color="red">Create some reviews</font></h1>
+		
 		<br>
 			<?php
 			if($_SESSION['check'] == 1){
 				?>
- <a href="createreview.php">
+
 		  
-		 <p class="contact-submit1">
-        <input type="submit" name="submit" value="Add Review">
-      </p></a>
+		 <a class="waves-effect waves-light btn" href="createreview.php"><i class="material-icons right">chat_bubble_outline</i>Write some review</a>
+
 				
 				<?php
 			}
 			else{
 					?>
 
-  <a href="reviews.php" onclick="myFunction()">
+
 		  
-		 <p class="contact-submit1">
-        <input type="submit" name="submit" value="Add Review">
-      </p></a>
+		 <a class="waves-effect waves-light btn" href="reviews.php" onclick="myFunction()"><i class="material-icons right">chat_bubble_outline</i>Write some review</a>
 	  <script>
 function myFunction() {
     alert("Please login!");
@@ -193,129 +178,72 @@ function myFunction() {
 
 				<?php
 					
-			}			
+			}		
+
+	$cursor1=	$coll->find(array('category'=>"Science"));
+	$cursor2=	$coll->find(array('category'=>"Society"));
+	$cursor3=	$coll->find(array('category'=>"Human"));
+	$cursor4=	$coll->find(array('category'=>"Interdisciplinary"));
+	
+	foreach ($cursor1 as $doc) {
+	$sc = $doc;
+	}
+		foreach ($cursor2 as $doc) {
+	$so = $doc;
+	}
+		foreach ($cursor3 as $doc) {
+	$hu = $doc;
+	}
+		foreach ($cursor4 as $doc) {
+	$in = $doc;
+	}
+
 			?>
+			<a class="waves-effect waves-light btn" href="createreview.php"><i class="material-icons right">view_list</i>Review List</a>
 		
         <br><br>
         <h1><font color="red">Recommended</font></h1>
-        <h3>Science</h3>
-		<br>
-		<?php 
-		$coll = $db->rate;
-		$cursor = $coll->find(array('category' => "Science"));
-		$maxrate = 0;
-		$maxsubj = array();
-		foreach ($cursor as $subj ){
-		if ($subj['rate'] > $maxrate) {
-			$maxrate = $subj['rate'];
-			$maxsubj = $subj;
-		}
-		}	
-		?>
-		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
-		
-	<div class="search-boxen">
-<div class="search-result">
-  <div class="benchmarks table">	 
-    <ul class="table-body"> 
-      <li class="tr"> 
-        <span class="td percentile-67"><span class="number"><?php  echo $maxsubj['title'] . " " . $maxsubj['SID']; ?></span></span>
-  </li>
-    </ul>
-</a></div></div>
-</div>		
+        
+
+ <ul class="collection">
+	<a href=" <?php  echo "showreview.php?SID=" . $sc['SID'];  ?>">
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">insert_chart</i>
     
-       
-		<br>
-		<br>
-		<h3>Human</h3>
-		<br>
-		<?php 
-		$coll = $db->rate;
-		$cursor = $coll->find(array('category' => "Human"));
-		$maxrate = 0;
-		$maxsubj = array();
-		foreach ($cursor as $subj ){
-		if ($subj['rate'] > $maxrate) {
-			$maxrate = $subj['rate'];
-			$maxsubj = $subj;
-		}
-		}	
-		?>
-		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
-		
-		 
-  <div class="search-boxen">
-<div class="search-result">
-  <div class="benchmarks table">	 
-    <ul class="table-body"> 
-      <li class="tr"> 
-        <span class="td percentile-91"><span class="number"><?php  echo $maxsubj['title'] . " " . $maxsubj['SID']; ?></span></span>
-  </li>
-    </ul>
-</a></div></div>
-</div>		
-    
-				<br>
-		<br>
-		<h3>Society</h3>
-		<br>
-		<?php 
-		$coll = $db->rate;
-		$cursor = $coll->find(array('category' => "Society"));
-		$maxrate = 0;
-		$maxsubj = array();
-		foreach ($cursor as $subj ){
-		if ($subj['rate'] > $maxrate) {
-			$maxrate = $subj['rate'];
-			$maxsubj = $subj;
-		}
-		}	
-		?>
-		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
-		
-		 
-   <div class="search-boxen">
-<div class="search-result">
-  <div class="benchmarks table">	 
-    <ul class="table-body"> 
-      <li class="tr"> 
-        <span class="td percentile-42"><span class="number"><?php  echo $maxsubj['title'] . " " . $maxsubj['SID']; ?></span></span>
-  </li>
-    </ul>
-</a></div></div>
-</div>		
-    
-		<br>
-		<br>
-		<h3>Interdisciplinary</h3>
-		<br>
-		<?php 
-		$coll = $db->rate;
-		$cursor = $coll->find(array('category' => "Interdisciplinary"));
-		$maxrate = 0;
-		$maxsubj = array();
-		foreach ($cursor as $subj ){
-		if ($subj['rate'] > $maxrate) {
-			$maxrate = $subj['rate'];
-			$maxsubj = $subj;
-		}
-		}	
-		?>
-		<a href=" <?php  echo "showreview.php?SID=" . $maxsubj['SID'];  ?>">
-		
-		 
-    <div class="search-boxen">
-<div class="search-result">
-  <div class="benchmarks table">	 
-    <ul class="table-body"> 
-      <li class="tr"> 
-        <span class="td percentile-14"><span class="number"><?php  echo $maxsubj['title'] . " " . $maxsubj['SID']; ?></span></span>
-  </li>
-    </ul>
-</a></div></div>
-</div>		
-    
+      <p><br><br><?php  echo $sc['title']; ?><br>
+						<?php  echo $sc['category']; ?>
+      </p>
+      </a>
+    </li>
+	<a href=" <?php  echo "showreview.php?SID=" . $so['SID'];  ?>">
+    <li class="collection-item avatar">
+      <i class="material-icons circle purple">folder</i>
+     
+      <p><<br><br><?php  echo $so['title']; ?><br>
+         <?php  echo $so['category']; ?>
+      </p>
+      </a>
+    </li>
+	<a href=" <?php  echo "showreview.php?SID=" . $hu['SID'];  ?>">
+    <li class="collection-item avatar">
+      <i class="material-icons circle blue">insert_chart</i>
+   
+      <p><br><br><?php  echo $hu['title']; ?><br>
+         <?php  echo $hu['category']; ?>
+      </p>
+      </a>
+    </li>
+	<a href=" <?php  echo "showreview.php?SID=" . $in['SID'];  ?>">
+    <li class="collection-item avatar">
+      <i class="material-icons circle red">play_arrow</i>
+   
+      <p><br><br><?php  echo $in['title']; ?><br>
+         <?php  echo $in['category']; ?>
+      </p>
+      </a>
+    </li>
+  </ul>
+
           </div>
 		   
        
